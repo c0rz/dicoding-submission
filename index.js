@@ -4,9 +4,14 @@ const app = express();
 const Route = require("./routes");
 const port = process.env.PORT;
 
+// middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // app.get("/", (req, res) => {
 //   res.send("Hello World!");
 // });
+
 app.use("/books", Route);
 
 // error handling
