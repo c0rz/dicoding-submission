@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 require("dotenv").config();
 const app = express();
 const Route = require("./routes");
@@ -8,9 +9,7 @@ const port = process.env.PORT;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// app.get("/", (req, res) => {
-//   res.send("Hello World!");
-// });
+app.use(cors());
 
 app.use("/books", Route);
 
